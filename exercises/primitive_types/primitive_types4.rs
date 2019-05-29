@@ -5,7 +5,9 @@
 fn main() {
     let a = [1, 2, 3, 4, 5];
 
-    let nice_slice = ???
+    // Borrow the slice, rather than move it, so that the
+    // size is known at compile time (the size of a reference)
+    let nice_slice = &a[1..4];
 
     if nice_slice == [2, 3, 4] {
         println!("Nice slice!");
@@ -13,30 +15,6 @@ fn main() {
         println!("Not quite what I was expecting... I see: {:?}", nice_slice);
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // Take a look at the Understanding Ownership -> Slices -> Other Slices section of the book:
 // https://doc.rust-lang.org/book/ch04-03-slices.html
